@@ -14,3 +14,6 @@ class Job(Base):
     created_by: Mapped[int] = mapped_column(ForeignKey('users.id'))
     created_at: Mapped[float] = mapped_column(Double)
     finished_at: Mapped[float | None] = mapped_column(Double, nullable=True)
+    invalidated_at: Mapped[float | None] = mapped_column(Double, nullable=True, default=None)
+    invalidated_by: Mapped[str | None] = mapped_column(String(150), nullable=True, default=None)
+    invalidated_reason: Mapped[str | None] = mapped_column(String(1000), nullable=True, default=None)

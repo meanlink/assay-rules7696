@@ -9,3 +9,6 @@ class Dataset(Base):
     records: Mapped[list] = mapped_column(JSON)
     checksum: Mapped[str] = mapped_column(String(64))
     created_at: Mapped[float] = mapped_column(Double)
+    retired_at: Mapped[float | None] = mapped_column(Double, nullable=True, default=None)
+    retired_by: Mapped[str | None] = mapped_column(String(150), nullable=True, default=None)
+    retire_reason: Mapped[str | None] = mapped_column(String(1000), nullable=True, default=None)

@@ -10,6 +10,8 @@ class Report(Base):
     interval_seconds: Mapped[int]
     next_run: Mapped[float] = mapped_column(Double)
     enabled: Mapped[bool] = mapped_column(Boolean, default=True)
+    invalidated_at: Mapped[float | None] = mapped_column(Double, nullable=True, default=None)
+    invalidated_reason: Mapped[str | None] = mapped_column(String(1000), nullable=True, default=None)
 class Delivery(Base):
     __tablename__ = 'deliveries'
     id: Mapped[int] = mapped_column(primary_key=True)
